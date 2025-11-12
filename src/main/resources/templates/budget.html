@@ -91,7 +91,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // --- Load budgets ---
   async function loadBudgets() {
-    const response = await fetch(`http://localhost:8080/api/budgets/user/${userId}`);
+    // const response = await fetch(`http://localhost:8080/api/budgets/user/${userId}`);
+    const response = await fetch(`https://smartspend-j5rf.onrender.com/api/budgets/user/${userId}`);
     const data = await response.json();
 
     tableBody.innerHTML = "";
@@ -118,7 +119,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       row.querySelector(".deleteBtn").addEventListener("click", async () => {
         if (confirm(`Are you sure you want to delete budget "${budget.category}"?`)) {
           try {
-            const res = await fetch(`http://localhost:8080/api/budgets/delete/${budget.id}`, {
+            // const res = await fetch(`http://localhost:8080/api/budgets/delete/${budget.id}`, 
+            const res = await fetch(`https://smartspend-j5rf.onrender.com/api/budgets/delete/${budget.id}`, 
+            {
               method: "DELETE"
             });
             const result = await res.text();
@@ -167,12 +170,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     const mode = form.dataset.mode;
-    let url = `http://localhost:8080/api/budgets/add?userId=${userId}`;
+    // let url = `http://localhost:8080/api/budgets/add?userId=${userId}`;
+    let url = `https://smartspend-j5rf.onrender.com/api/budgets/add?userId=${userId}`;
     let method = "POST";
 
     if (mode === "edit") {
       const budgetId = form.dataset.budgetId;
-      url = `http://localhost:8080/api/budgets/update/${budgetId}`;
+      // url = `http://localhost:8080/api/budgets/update/${budgetId}`;
+      url = `https://smartspend-j5rf.onrender.com/api/budgets/update/${budgetId}`;
       method = "PUT";
     }
 

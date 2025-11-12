@@ -90,8 +90,10 @@
     // Fetch Total Income & Expense
     async function loadDashboardData() {
       try {
-        const incomeRes = await fetch(`http://localhost:8080/api/expenses/total-income?userId=${userId}`);
-        const expenseRes = await fetch(`http://localhost:8080/api/expenses/total-expense?userId=${userId}`);
+        // const incomeRes = await fetch(`http://localhost:8080/api/expenses/total-income?userId=${userId}`);
+        const incomeRes = await fetch(`https://smartspend-j5rf.onrender.com/api/expenses/total-income?userId=${userId}`);
+        // const expenseRes = await fetch(`http://localhost:8080/api/expenses/total-expense?userId=${userId}`);
+        const expenseRes = await fetch(`https://smartspend-j5rf.onrender.com/api/expenses/total-expense?userId=${userId}`);
         
         const income = await incomeRes.text();
         const expense = await expenseRes.text();
@@ -106,7 +108,8 @@
     // Spend by Category (Pie Chart)
     async function loadSpendByCategoryChart() {
       try {
-        const res = await fetch(`http://localhost:8080/api/expenses/spending-by-category?userId=${userId}`);
+        // const res = await fetch(`http://localhost:8080/api/expenses/spending-by-category?userId=${userId}`);
+        const res = await fetch(`https://smartspend-j5rf.onrender.com/api/expenses/spending-by-category?userId=${userId}`);
         const data = await res.json();
 
         const ctx = document.getElementById("spendByCategoryChart").getContext("2d");
@@ -138,7 +141,8 @@
     // Income vs Expense (Bar Chart)
     async function loadIncomeVsExpenseChart() {
       try {
-        const res = await fetch(`http://localhost:8080/api/expenses/income-vs-expense?userId=${userId}`);
+        // const res = await fetch(`http://localhost:8080/api/expenses/income-vs-expense?userId=${userId}`);
+        const res = await fetch(`https://smartspend-j5rf.onrender.com/api/expenses/income-vs-expense?userId=${userId}`);
         const data = await res.json();
 
         const ctx = document.getElementById("incomeVsExpenseChart").getContext("2d");

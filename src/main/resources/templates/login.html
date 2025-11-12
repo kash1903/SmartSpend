@@ -72,11 +72,13 @@ form.addEventListener("submit", async (e) => {
 
     if (identifier.includes("@")) {
         // login using email
-        url = "http://localhost:8080/api/users/login";
+        // url = "http://localhost:8080/api/users/login";
+        url = "https://smartspend-j5rf.onrender.com/api/users/login";
         bodyData = { email: identifier, password: password };
     } else {
         // login using username
-        url = "http://localhost:8080/api/users/login/username";
+        // url = "http://localhost:8080/api/users/login/username";
+        url = "https://smartspend-j5rf.onrender.com/api/users/login/username";
         bodyData = { username: identifier, password: password };
     }
 

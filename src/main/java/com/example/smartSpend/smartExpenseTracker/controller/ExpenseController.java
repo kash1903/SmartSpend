@@ -96,9 +96,10 @@ public double getTotalExpense(@RequestParam Long userId) {
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<Expense>> getExpensesByUser(@PathVariable Long userId) {
         List<Expense> expenses = expenseService.getExpensesByUser(userId);
-        if (expenses.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+        // if (expenses.isEmpty()) {
+        //     return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        // }
+        // ✅ Always return the list (even if empty)
         return ResponseEntity.ok(expenses);
     } 
 }
